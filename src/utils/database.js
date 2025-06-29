@@ -8,11 +8,10 @@ const logger = require("./logger");
  * Initialize database connection pool (with Supabase-compatible SSL)
  * @returns {Pool} PostgreSQL connection pool
  */
-const { Pool } = require("pg");
 require("dotenv").config();
 const logger = require("./logger");
 
-let pool;
+
 
 const initializePool = () => {
 	if (!pool) {
