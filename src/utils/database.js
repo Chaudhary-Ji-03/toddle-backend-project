@@ -2,23 +2,18 @@ require("dotenv").config();
 const { Pool } = require("pg");
 const logger = require("./logger");
 
-
+let pool;
 
 /**
  * Initialize database connection pool (with Supabase-compatible SSL)
  * @returns {Pool} PostgreSQL connection pool
  */
-require("dotenv").config();
-const logger = require("./logger");
-
-
-
 const initializePool = () => {
 	if (!pool) {
 		pool = new Pool({
 			connectionString: process.env.DATABASE_URL,
 			ssl: {
-				rejectUnauthorized: false,
+				rejectUnauthorized: false, // Required for Supabase SSL
 			},
 		});
 
@@ -28,7 +23,6 @@ const initializePool = () => {
 	}
 	return pool;
 };
-
 
 /**
  * Connect to the database and test connection
