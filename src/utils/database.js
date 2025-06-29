@@ -2,7 +2,7 @@ require("dotenv").config();
 const { Pool } = require("pg");
 const logger = require("./logger");
 
-let pool;
+
 
 /**
  * Initialize database connection pool (with Supabase-compatible SSL)
